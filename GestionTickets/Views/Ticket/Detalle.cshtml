@@ -1,0 +1,54 @@
+﻿@model TicketViewModel
+@{
+    ViewBag.Title = "Nuevo";
+}
+
+<h2>
+    <a style="float: right; color: blue" href="@Url.Action("Index","Ticket")"><i class="fas fa-arrow-alt-circle-left"></i></a>
+    Detalle Ticket
+</h2>
+
+@if (Model.ticket == null)
+{
+                <h3>El ID del ticket no existe</h3>
+}
+
+else
+{
+    <div class="form-group">
+    <label>Id: </label>
+    @Model.ticket.Id
+</div>
+
+<div class="form-group">
+    <label>Fecha de Generacion: </label>
+    @Model.ticket.FechaGeneracion
+</div>
+
+<div class="form-group">
+    <label>Estado: </label>
+    @Model.ticket.Estado.Nombre
+</div>
+
+<div class="form-group">
+    <label>Usuario: </label>
+    @Model.ticket.Usuario.Nombre
+</div>
+
+<div class="form-group">
+    <label>Descripcion: </label>
+    @Model.ticket.Descripcion
+</div>
+
+<div class="form-group">
+    <label>Responsable: </label>
+    @Model.ticket.Responsable.Nombre
+</div>
+<br />
+
+<div class="form-group">
+    <input type="button" value="Solucionar" class="btn btn-success" />
+</div>
+
+}
+

@@ -1,0 +1,55 @@
+﻿@model Usuario
+@{
+    ViewBag.Title = " Detalle Usuario";
+    Layout = "~/Views/Shared/_LayoutUsuario.cshtml";
+}
+
+<h2>
+    <a style="float: right; color: blue" href="@Url.Action("Index","Usuario")"><i class="fas fa-arrow-alt-circle-left"></i></a>
+    Detalle Usuario
+</h2>
+
+@if (Model == null)
+{
+    <h3>El ID del Usuario no existe</h3>
+}
+
+else
+{
+    <div class="form-group">
+        <label>Id: </label>
+        @Model.Id
+    </div>
+
+    <div class="form-group">
+        <label>Nombre: </label>
+        @Model.Nombre
+    </div>
+
+    <div class="form-group">
+        <label>Apellido: </label>
+        @Model.Apellido
+    </div>
+
+    <div class="form-group">
+        <label>Telefono: </label>
+        @Model.Telefono
+    </div>
+
+    <div class="form-group">
+        <label>Email: </label>
+        @Model.Email
+    </div>
+
+    <div class="form-group">
+        <label>Activo: </label>
+        @Model.Activo
+    </div>
+    <br />
+
+    <div class="form-group">
+        <input type="button" value="Solucionar" class="btn btn-success" />
+    </div>
+
+}
+

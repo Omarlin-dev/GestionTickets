@@ -1,0 +1,61 @@
+﻿@model TicketViewModel
+@{
+    ViewBag.Title = "Nuevo";
+}
+
+<h2>
+    <a style="float: right; color: blue" href="@Url.Action("Index","Ticket")"><i class="fas fa-arrow-alt-circle-left"></i></a>
+    Nuevo Ticket
+</h2>
+
+@using (Html.BeginForm("Nuevo", "Ticket", FormMethod.Post, new { @class = "form-control" }))
+{
+    <div class="form-group">
+        <label>Fecha de Generacion</label><br />
+        @Html.EditorFor(d => d.ticket.FechaGeneracion, null, new { @class = "form-control", @required = "required" })
+    </div>
+
+    <div class="form-group">
+        <label>Estado</label><br />
+        <select name="ticket.IdEstado" class="form-control" required>
+            <option value="">Seleccione</option>
+            @foreach(var estado in Model.estados)
+                {
+                <option value="@estado.Id">@estado.Nombre</option>
+                }
+        </select>
+    </div>
+
+    <div class="form-group">
+        <label>Usuario</label><br />
+             <select name="ticket.IdUsuario" class="form-control" required>
+             <option value="">Seleccione</option>
+             @foreach (var usuario in Model.usuarios)
+              {
+               <option value="@usuario.Id">@usuario.Nombre</option>
+              }
+             </select>    
+    </div>
+
+    <div class="form-group">
+        <label>Descripcion</label><br />
+        @Html.TextAreaFor(d => d.ticket.Descripcion, new { @class = "form-control", @required = "required" })
+    </div>
+
+    <div class="form-group">
+        <label>Responsable</label><br />
+         <select name="ticket.IdResponsable" class="form-control" required>
+           <option value="">Seleccione</option>
+               @foreach (var responsable in Model.responsables)
+                {
+                    <option value="@responsable.Id">@responsable.Nombre</option>
+                 }
+                </select>
+    </div><br />
+
+    <div class="form-group">
+        <input type="submit" value="Guardar" class="btn btn-success"/>
+    </div>
+}
+
+
